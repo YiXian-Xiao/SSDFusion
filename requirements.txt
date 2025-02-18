@@ -1,0 +1,14 @@
+timm
+einops
+torch
+torchvision
+pandas
+lightning
+h5py
+kornia
+torchinfo
+opencv-python
+toml
+mmsegmentation
+regex
+ftfy

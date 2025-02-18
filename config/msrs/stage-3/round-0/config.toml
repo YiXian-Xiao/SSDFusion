@@ -1,0 +1,66 @@
+[common]
+name = "Stage3_MSRS" # name for this train session
+gpu = 0
+
+[dataset]
+train = "data/dataset/MSRS/train"
+test = "data/dataset/MSRS/test"
+loader_threads = 8
+
+[logging]
+result_dir = 'data/results/' # fusion results, will be stored at data/results/%common.name%
+write_result_freq = 50 # epochs or -1 to disable
+
+[logging.tensorboard]
+enabled = true
+log_dir = 'data/tensorboard' # will be stored at data/tensorboard/%common.name%
+log_image_freq = 50 # iterations or -1 to disable
+
+[checkpoint]
+path = 'data/checkpoint' # will be stored at data/checkpoint/%common.name%.pth
+save_model_freq = 4 # epochs
+
+[semseg]
+config = 'work/MSCAN-26/segmodel.py'
+model = 'data/checkpoint/segmodel.pth'
+model_out = 'data/checkpoint/'
+
+[semseg.input]
+mean = [0.220, 0.287, 0.218]
+std = [0.212, 0.212, 0.217]
+
+[train]
+stage = "III"
+batch_size = 2
+max_epochs = 50
+
+[train.lr_scheduler.cosine]
+policy = 'cosine'
+T_0 = 1
+T_mult = 2
+min_lr = 1e-9
+
+[train.lr_scheduler.linear_decay]
+policy = 'linear_decay'
+step = 20
+gamma = 0.5
+
+[hparam.lr.inner]
+initial_lr = 1e-4
+
+[hparam.lr.outer]
+initial_lr = 1e-4
+
+[hparam.lr.outer.scheduler]
+':ref' = 'train.lr_scheduler.cosine'
+
+[hparam.loss_weight]
+coeff_mse_loss_VF = 1.0 # alpha1
+coeff_mse_loss_IF = 1.0
+coeff_decomp = 2.0      # alpha2 and alpha4
+coeff_tv = 5.0
+weights_decomp = [1.0, 0.5, 0.2, 0.1]
+meta=1.0
+
+[hparam.meta]
+interval = 8  # epochs

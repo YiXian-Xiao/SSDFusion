@@ -1,0 +1,28 @@
+data_root = ''
+
+[img_norm_cfg]
+mean = [0, 0, 0]
+std = [0, 0, 0]
+
+# Seg config override
+
+[dataset]
+data_root = { ':ref' = 'data_root' }
+
+[data_preprocessor]
+':ref' = 'img_norm_cfg'
+
+[model.data_preprocessor]
+':ref' = 'img_norm_cfg'
+
+[default_hooks.checkpoint]
+# interval=16000
+
+[train_dataloader.dataset]
+':ref' = 'dataset'
+
+[test_dataloader.dataset]
+':ref' = 'dataset'
+
+[val_dataloader.dataset]
+':ref' = 'dataset'

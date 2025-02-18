@@ -1,0 +1,23 @@
+[dataset]
+name = "MSRS"
+
+[label]
+classes = ['unlabelled',
+    'car',
+    'person',
+    'bike',
+    'curve',
+    'car_stop',
+    'guardrail',
+    'color_cone',
+    'bump']
+[label.palette]
+unlabelled = [0, 0, 0]
+car = [64, 0, 128]
+person = [64, 64, 0]
+bike = [0, 128, 192]
+curve = [0, 0, 192]
+car_stop = [128, 128, 0]
+guardrail = [64, 64, 128]
+color_cone = [192, 128, 128]
+bump = [192, 64, 0]

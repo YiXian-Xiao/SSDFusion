@@ -1,0 +1,36 @@
+[dataset]
+name = "PST900"
+
+[dataset.test]
+vi = 'test/vi'
+ir = 'test/ir'
+label = 'test/Segmentation_labels'
+
+[dataset.train]
+vi = 'train/vi'
+ir = 'train/ir'
+label = 'train/Segmentation_labels'
+
+[dataset.vi]
+mean = [87.9, 88.79, 84.43]
+std = [63.72, 65.09, 65.03]
+
+[dataset.ir]
+mean = [58.54, 58.54, 58.54]
+std = [68.04, 68.04, 68.04]
+
+[label]
+classes = [
+    'background',
+    'drill',
+    'backpack',
+    'fire_extinguisher',
+    'rescue_randy'
+]
+
+[label.palette]
+background = [0, 0, 0]
+fire_extinguisher = [0,0,255]
+backpack = [0,255,0]
+drill = [255,0,0]
+rescue_randy = [255,255,255]

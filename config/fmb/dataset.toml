@@ -1,0 +1,56 @@
+[dataset]
+name = "FMB"
+
+[dataset.test]
+vi = 'test/vi'
+ir = 'test/ir'
+label = 'test/Segmentation_labels'
+
+[dataset.train]
+vi = 'train/vi'
+ir = 'train/ir'
+label = 'train/Segmentation_labels'
+
+[dataset.vi]
+mean = [119.23, 118.61, 116.06]
+std = [44.72, 44.51, 46.29]
+
+[dataset.ir]
+mean = [78.76, 78.76, 78.76]
+std = [48.92, 48.92, 48.92]
+
+[label]
+classes = [
+    'background', # 0
+    'road', # 1
+    'sidewalk', # 2
+    'building', # 3
+    'lamp', # 4
+    'sign', # 5
+    'vegetation', # 6
+    'sky', # 7
+    'person', # 8
+    'car', # 9
+    'truck', # 10
+    'bus', # 11
+    'motorcycle', # 12
+    'bicycle', # 13
+    'pole', # 14
+]
+
+[label.palette]
+background = [0, 0, 0]
+road = [179, 228, 228]
+sidewalk = [181, 57, 133]
+building = [67, 162, 177]
+lamp = [200, 178, 50]
+sign = [132, 45, 199]
+vegetation = [66, 172, 84]
+sky = [179, 73, 79]
+person = [76, 99, 166]
+car = [66, 121, 253]
+truck = [137, 165, 91]
+bus = [155, 97, 152]
+motorcycle = [105, 153, 140]
+bicycle = [222, 215, 158]
+pole = [135, 113, 90]
